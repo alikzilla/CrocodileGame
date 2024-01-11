@@ -1,0 +1,8 @@
+{
+  "name": "Crocodile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite",
+  "id": "6ad6ba14"
+}
