@@ -1,8 +1,8 @@
 <template>
   <ion-page>
     <ion-header :translucent="true">
-      <ion-toolbar>
-        <ion-title>Settings</ion-title>
+      <ion-toolbar color="primary">
+        <ion-title class="header-title">Settings</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -14,7 +14,10 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue
 </script>
 
 <style scoped>
-ion-title {
+.header-title {
+  font-size: 25px;
+  font-weight: 600;
   text-align: center;
+  color: white;
 }
 </style>
