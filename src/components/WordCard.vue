@@ -26,7 +26,7 @@ import {
 } from '@ionic/vue';
 import { checkmark, close } from 'ionicons/icons';
 import { ref } from 'vue';
-import { globalStore } from './globalStore';
+import { globalStore } from './globalStore.ts';
 
 const props = defineProps({
   word: String,

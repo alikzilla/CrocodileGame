@@ -26,7 +26,7 @@
 import { ref, defineProps, defineEmits, onMounted } from 'vue';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/vue';
 import WordCard from '../components/WordCard.vue';
-import { globalStore } from '../components/globalStore';
+import { globalStore } from '../components/globalStore.ts';
 
 const getRandomWords = (splitArray) => {
     const result = [];
