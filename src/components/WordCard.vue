@@ -1,29 +1,25 @@
 <template>
-  <div v-if="isVisible" class="card">
-    <ion-fab horizontal="start">
-      <ion-fab-button @click="increaseWinAndHide">
-        <ion-icon aria-hidden="true" :icon="checkmark"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-    <ion-content>
-      <h1>{{ word }}</h1>
-    </ion-content>
-    <ion-fab horizontal="end">
-      <ion-fab-button class="close" @click="increaseLoseAndHide">
-        <ion-icon aria-hidden="true" :icon="close"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-  </div>
+  <transition name="fade" mode="out-in">
+    <div v-if="isVisible" class="card">
+      <ion-fab horizontal="start">
+        <ion-fab-button class="checkmark" @click="increaseWinAndHide">
+          <ion-icon aria-hidden="true" :icon="checkmark"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+      <ion-content>
+        <h1>{{ word }}</h1>
+      </ion-content>
+      <ion-fab horizontal="end">
+        <ion-fab-button class="close" @click="increaseLoseAndHide">
+          <ion-icon aria-hidden="true" :icon="close"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </div>
+  </transition>
 </template>
 
 <script setup lang="ts">
-import {
-  IonFab,
-  IonFabButton,
-  IonIcon,
-  IonContent,
-  alertController,
-} from '@ionic/vue';
+import { IonFabButton, IonIcon, IonContent, alertController } from '@ionic/vue';
 import { checkmark, close } from 'ionicons/icons';
 import { ref } from 'vue';
 import { globalStore } from './globalStore.ts';
@@ -33,8 +29,6 @@ const props = defineProps({
 });
 
 const isVisible = ref(true);
-const isOpen = ref(false);
-
 const increaseWinAndHide = () => {
   globalStore.wins++;
   console.log('Guessed:', globalStore.wins);
@@ -74,6 +68,13 @@ const totalCards = 5;
 </script>
 
 <style scoped>
+  .fade-enter-active, .fade-leave-active {
+    transition: background-color 0.5s; /* Adjust the duration as needed */
+  }
+  .fade-enter, .fade-leave-to {
+    background-color: yellow; /* Initial background color */
+  }
+
   .card {
     position: relative;
     padding: 0 50px;
@@ -88,11 +89,16 @@ const totalCards = 5;
 
   ion-content {
     text-align: center;
+    --background: transparent;
   }
 
   ion-icon {
     color: white;
   }
+
+  .checkmark {
+    --background: #7fba00;
+  } 
 
   .close {
     --background: rgb(200, 0, 0);

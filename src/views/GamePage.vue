@@ -12,20 +12,20 @@
       </div>
 
       <div v-if="globalStore.isStartedGame" class="cards-list">
-        <WordCard :word="randomWords[0]"></WordCard>
-        <WordCard :word="randomWords[1]"></WordCard>
-        <WordCard :word="randomWords[2]"></WordCard>
-        <WordCard :word="randomWords[3]"></WordCard>
-        <WordCard :word="randomWords[4]"></WordCard>
+        <Cards :visibleCards="randomWords"></Cards>
+        <div>
+          <h1>Swipe left to false</h1>
+          <h1>Swipe right to right</h1>
+        </div>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps, defineEmits, onMounted } from 'vue';
+import { ref, defineEmits, onMounted } from 'vue';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/vue';
-import WordCard from '../components/WordCard.vue';
+import Cards from '../components/Cards.vue';
 import { globalStore } from '../components/globalStore.ts';
 
 const getRandomWords = (splitArray: string[][]) => {
@@ -44,7 +44,6 @@ const startGame = () => {
     console.log('Game started!');
     globalStore.isStartedGame = true;
 
-    // Update randomWords with new random words
     randomWords.value = getRandomWords(splitArray.value);
 };
 
@@ -58,7 +57,6 @@ onMounted(() => {
     randomWords.value = getRandomWords(splitArray.value);
 });
 
-const props = defineProps(['IonPage', 'IonHeader', 'IonToolbar', 'IonTitle', 'IonContent', 'IonButton', 'WordCard']);
 const emits = defineEmits(['startGame', 'isStartedGame']);
 
 </script>
