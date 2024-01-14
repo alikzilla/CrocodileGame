@@ -59,7 +59,7 @@ export default {
         return `translate3D(${x}px, ${y}px, 0) rotate(${rotation}deg)`;
       }
 
-      return ""; // Return an empty string if not animating or dragged
+      return "";
     }
   },
 

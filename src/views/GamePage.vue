@@ -12,10 +12,13 @@
       </div>
 
       <div v-if="globalStore.isStartedGame" class="cards-list">
-        <Cards :visibleCards="randomWords"></Cards>
-        <div>
-          <h1>Swipe left to false</h1>
-          <h1>Swipe right to right</h1>
+        <div style="padding: 20px;">
+          <Cards :visibleCards="randomWords"></Cards>
+        </div>
+        
+        <div class="info-card">
+          <h1>Swipe left to <span class="false">FALSE</span></h1>
+          <h1>Swipe right to <span class="right">TRUE</span></h1>
         </div>
       </div>
     </ion-content>
@@ -83,9 +86,25 @@ ion-button {
 }
 
 .cards-list {
-  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100vw;
+}
+
+.info-card {
+  border-top: 0.5px rgb(235, 235, 235) solid;
+  height: auto;
+  width: 100%;
+}
+
+.false {
+  color: red;
+  font-weight: bold;
+}
+
+.right {
+  color: rgb(0, 193, 0);
+  font-weight: bold;
 }
 </style>
