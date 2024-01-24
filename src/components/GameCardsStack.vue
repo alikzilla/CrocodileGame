@@ -36,6 +36,6 @@ export default {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 60vh;
+  height: 100%;
 }
 </style>

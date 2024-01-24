@@ -12,14 +12,7 @@
       </div>
 
       <div v-if="globalStore.isStartedGame" class="cards-list">
-        <div style="padding: 20px;">
-          <Cards :visibleCards="randomWords"></Cards>
-        </div>
-        
-        <div class="info-card">
-          <h1>Swipe left to <span class="false">FALSE</span></h1>
-          <h1>Swipe right to <span class="right">TRUE</span></h1>
-        </div>
+        <Cards :visibleCards="randomWords"></Cards>
       </div>
     </ion-content>
   </ion-page>
@@ -66,8 +59,12 @@ const emits = defineEmits(['startGame', 'isStartedGame']);
 
 
 <style scoped>
+ion-header, ion-toolbar, ion-title {
+  height: 10vh;
+}
+
 .header-title {
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 600;
   text-align: center;
   color: white;
@@ -86,25 +83,8 @@ ion-button {
 }
 
 .cards-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
   width: 100vw;
-}
-
-.info-card {
-  border-top: 0.5px rgb(235, 235, 235) solid;
-  height: auto;
-  width: 100%;
-}
-
-.false {
-  color: red;
-  font-weight: bold;
-}
-
-.right {
-  color: rgb(0, 193, 0);
-  font-weight: bold;
+  height: calc(80vh - 1px);
+  padding: 20px 20px 5px 20px;
 }
 </style>
