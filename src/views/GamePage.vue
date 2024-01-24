@@ -12,7 +12,7 @@
       </div>
 
       <div v-if="globalStore.isStartedGame" class="cards-list">
-        <Cards :visibleCards="randomWords"></Cards>
+        <GameComponent :visibleCards="randomWords"></GameComponent>
       </div>
     </ion-content>
   </ion-page>
@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import { ref, defineEmits, onMounted } from 'vue';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/vue';
-import Cards from '../components/Cards.vue';
+import GameComponent from '../components/GameComponent.vue';
 import { globalStore } from '../components/globalStore.ts';
 
 const getRandomWords = (splitArray: string[][]) => {
