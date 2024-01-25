@@ -182,7 +182,7 @@ $fs-card-title: 1.125em;
 
   display: flex;
   max-height: 600px;
-  height: 450px;
+  height: 50vh;
   margin: auto;
   font-size: $fs-h2;
   font-weight: $fw-bold;
@@ -208,6 +208,12 @@ $fs-card-title: 1.125em;
 
   &.isAnimating {
     transition: transform 0.7s $ease-out-back;
+  }
+}
+
+@media screen and (min-width: 390px) {
+  .card {
+    height: 55vh;
   }
 }
 
