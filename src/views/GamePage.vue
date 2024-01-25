@@ -27,7 +27,7 @@ import { globalStore } from '../components/globalStore.ts';
 const getRandomWords = (splitArray: string[][]) => {
     const result = [];
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < globalStore.cardCount; i++) {
         const randomIndex = Math.floor(Math.random() * splitArray.length);
         const randomWord = splitArray[randomIndex][Math.floor(Math.random() * splitArray[randomIndex].length)];
         result.push(randomWord);

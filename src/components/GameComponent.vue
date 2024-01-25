@@ -16,18 +16,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps, onMounted } from 'vue';
+import { ref, defineProps, onMounted, watch } from 'vue';
 import GameCardsStack from './GameCardsStack.vue';
 import { globalStore } from './globalStore';
 import { alertController, IonProgressBar } from '@ionic/vue';
 
-const totalCards = ref(5);
+const totalCards = ref(globalStore.cardCount);
 
 const handleCardAccepted = () => {
   globalStore.wins++;
   console.log("handleCardAccepted " + " guessed: " + globalStore.wins);
 
-  if (globalStore.wins + globalStore.loses === totalCards.value) {
+  console.log(totalCards.value);
+
+  if (globalStore.wins + globalStore.loses == totalCards.value) {
     presentAlert();
   }
 };
@@ -36,7 +38,9 @@ const handleCardRejected = () => {
   globalStore.loses++;
   console.log("handleCardRejected " + " unguessed: " + globalStore.loses);
 
-  if (globalStore.wins + globalStore.loses === totalCards.value) {
+  console.log(totalCards.value);
+
+  if (globalStore.wins + globalStore.loses == totalCards.value) {
     presentAlert();
   }
 };
@@ -86,7 +90,7 @@ const timer = setInterval(() => {
     presentTimeAlert();
     clearInterval(timer);
   }
-}, 50);
+}, globalStore.timer);
 
 
 onMounted(() => {
