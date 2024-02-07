@@ -27,13 +27,7 @@ Crocodile is a fun and addictive mobile game that challenges players to guess wo
 - To build the project for production, use the command: `ionic build`
 - Deploy the built files to your preferred hosting platform.
 
-## Contributing
-We welcome contributions from the community. If you would like to contribute to the development of Crocodile, please follow our [contribution guidelines](CONTRIBUTING.md).
-
-## License
-This project is licensed under the [MIT License](LICENSE).
-
 ## Contact
-For any inquiries or support, please contact us at [contact@crocodilegame.com](mailto:contact@crocodilegame.com).
+For any inquiries or support, please contact us at [nuspekovalihan@gmail.com](mailto:nuspekovalihan@gmail.com).
 
 Thank you for choosing Crocodile! Enjoy the game and have fun guessing! 🐊🎮
